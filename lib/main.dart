@@ -17,14 +17,11 @@ class MyApp extends StatelessWidget {
       ),
       home:  Scaffold(
         appBar: AppBar(title: Text("This is the App title"),),
-        body: ListView(
-          children: [
-            MovieItem(Movie(name: "Test1", rate: 9.2, image: '/images/m1.jpg',genre: 'Drama')),
-            MovieItem(Movie(name: "Test1", rate: 9.2, image: '/images/m2.jpg',genre: 'Drama')),
-            MovieItem(Movie(name: "Test1", rate: 9.2, image: '/images/m3.jpg',genre: 'Drama')),
-            MovieItem(Movie(name: "Test1", rate: 9.2, image: '/images/m4.jpg',genre: 'Drama'))
-
-          ],
+        body: ListView.builder(
+            itemCount: movies.length,
+            itemBuilder: (BuildContext context, int index){
+              return MovieItem(movies[index]);
+            }
         )
 
 
@@ -82,9 +79,9 @@ class Movie{
 }
 
 List<Movie> movies = [
-  Movie(name: "test1", genre: "Drama", rate: 9.2, image: '/images/m2'),
-  Movie(name: "test2", genre: "Drama", rate: 9.2, image: '/images/m3'),
-  Movie(name: "test3", genre: "Drama", rate: 9.2, image: '/images/m4'),
-  Movie(name: "test4", genre: "Drama", rate: 9.2, image: '/images/m5'),
+  Movie(name: "test1", genre: "Drama", rate: 9.2, image: 'images/m2.jpg'),
+  Movie(name: "test2", genre: "Drama", rate: 9.2, image: 'images/m3.jpg'),
+  Movie(name: "test3", genre: "Drama", rate: 9.2, image: 'images/m4.jpg'),
+  Movie(name: "test4", genre: "Drama", rate: 9.2, image: 'images/m5.jpg')
 ];
 
